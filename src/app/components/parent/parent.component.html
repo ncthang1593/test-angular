@@ -1,0 +1,23 @@
+<div [formGroup]="myForm">
+  <p>parent works!</p>
+  <nz-tabset (nzSelectChange)="onChangeTab($event)" style="padding-left: 50px">
+    <nz-tab [nzTitle]="tab" *ngFor="let tab of totalTabs">
+      <ng-container [ngSwitch]="tab">
+        <ng-container *ngSwitchCase="'Tab 1'">
+          <app-data-tab [dataTab]="dataTab1"></app-data-tab>
+        </ng-container>
+
+
+        <ng-container *ngSwitchCase="'Tab 2'">
+          <app-data-tab [dataTab]="dataTab2"></app-data-tab>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'Tab 3'">
+          <app-data-tab [dataTab]="dataTab3"></app-data-tab>
+        </ng-container>
+      </ng-container>
+    </nz-tab>
+  </nz-tabset>
+</div>
+
+<app-child></app-child>
