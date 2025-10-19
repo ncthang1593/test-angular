@@ -1,0 +1,23 @@
+<p>test-signal works!</p>
+<div [formGroup]="form">
+  <input
+    style="width: 50%"
+    nz-input
+    placeholder="Basic usage"
+    type="text"
+    formControlName="address"
+  />
+  <nz-select
+    nzShowSearch
+    nzAllowClear
+    nzPlaceHolder="Select a person"
+    formControlName="name"
+  >
+    <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
+    <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
+    <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+  </nz-select>
+</div>
+
+<p>Address: {{ testSignalStore.address() }}</p>
+<p>Name: {{ testSignalStore.name() }}</p>

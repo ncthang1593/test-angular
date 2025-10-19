@@ -1,0 +1,25 @@
+.custom-checkbox {
+  display: flex;
+  flex-direction: column;
+
+  .checkbox-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+
+    input[type="checkbox"] {
+      margin-right: 6px;
+      width: 16px;
+      height: 16px;
+    }
+
+    label {
+      user-select: none;
+    }
+
+    &.disabled {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+  }
+}

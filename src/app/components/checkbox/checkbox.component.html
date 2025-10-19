@@ -1,0 +1,23 @@
+<div class="custom-checkbox">
+  <!-- Select All -->
+  <div class="checkbox-row">
+    <input
+      type="checkbox"
+      [checked]="isAllSelected()"
+      [indeterminate]="isIndeterminate()"
+      (change)="toggleAll()"
+      [disabled]="disabled"
+    />
+    <label>Select All</label>
+  </div>
+
+  <div class="checkbox-row" *ngFor="let item of items">
+    <input
+      type="checkbox"
+      [checked]="isChecked(item)"
+      (change)="toggleItem(item)"
+      [disabled]="item.disabled || disabled"
+    />
+    <label>{{ item.label }}</label>
+  </div>
+</div>

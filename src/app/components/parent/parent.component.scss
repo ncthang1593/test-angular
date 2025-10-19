@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; // khoảng cách giữa các span
+  // width: 250px; // giới hạn vùng để test ellipsis
+}
+
+.ellipsis {
+  display: inline-block;
+  max-width: 200px; // giới hạn chiều rộng
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  // border: 1px solid #ccc; // để dễ nhìn
+  padding: 4px;
+}

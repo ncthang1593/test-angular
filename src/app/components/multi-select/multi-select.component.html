@@ -1,0 +1,80 @@
+<div class="multi-select" [ngStyle]="{ width: width || 'auto' }">
+  <div class="input-box" (click)="onInputClick($event)">
+    @if (selectedItems().length) { @for (item of visibleSelectedItems(); track
+    item.value) {
+    <div class="tag">
+      {{ item.label }}
+      <span class="remove" (click)="removeTag(item, $event)">×</span>
+    </div>
+
+    } } @else {
+    <span class="placeholder">Select items...</span>
+    } @if (diffTagCount() ) {
+    <div class="tag more">
+      +{{ diffTagCount() }} items
+      <span class="remove">×</span>
+    </div>
+    }
+  </div>
+
+  <div class="dropdown" [class.open]="isOpen()">
+    @if (items.length === 0) {
+    <div class="no-data">No items found</div>
+    } @else {
+
+    <!-- Search box -->
+    <div
+      class="dropdown-item-top search-box"
+      (click)="$event.stopPropagation()"
+    >
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Search..."
+        [(ngModel)]="searchTerm"
+        (input)="filterItems()"
+      />
+      <!-- @if (searchTerm) {
+      <div class="clear" (click)="clearSearch()">×</div>
+      } -->
+    </div>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- Select All -->
+    <div class="dropdown-item-top" (click)="$event.stopPropagation()">
+      <span class="label"
+        >Select All ({{ selectedItems().length }}/{{ items.length }} item)</span
+      >
+      <input
+        type="checkbox"
+        [checked]="
+          selectedItems().length === filteredItems().length &&
+          filteredItems().length
+        "
+        [indeterminate]="
+          selectedItems().length &&
+          selectedItems().length < filteredItems().length
+        "
+        (change)="toggleAll($event)"
+      />
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- list items -->
+    <div class="items-container">
+      @if (filteredItems().length === 0) {
+      <div class="no-data">No items found</div>
+      } @else { @for (item of filteredItems(); track item.value) {
+      <div class="dropdown-item" (click)="toggleSelect(item)">
+        <span class="label">{{ item.label }}</span>
+        <input type="checkbox" [checked]="isSelected(item)" />
+        <!-- (change)="toggleSelect(item)" -->
+      </div>
+      } }
+    </div>
+    }
+  </div>
+</div>
