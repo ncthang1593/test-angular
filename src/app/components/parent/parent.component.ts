@@ -9,6 +9,10 @@ import {
   TableHeader,
 } from '../reusable-table/reusable-table.component';
 import { TestSignalComponent } from '../test-signal/test-signal.component';
+import {
+  Item,
+  TransferDragDropComponent,
+} from '../transfer-drag-drop/transfer-drag-drop.component';
 
 @Component({
   selector: 'app-parent',
@@ -18,7 +22,8 @@ import { TestSignalComponent } from '../test-signal/test-signal.component';
     MultiSelectComponent,
     CustomCheckboxComponent,
     ReusableTableComponent,
-    TestSignalComponent
+    TestSignalComponent,
+    TransferDragDropComponent,
   ],
   templateUrl: './parent.component.html',
   styleUrl: './parent.component.scss',
@@ -33,6 +38,32 @@ export class ParentComponent {
   ];
   data: any[] = [];
   pageIndex = 0;
+
+  leftList: Item[] = [
+    { id: 1, name: 'Item 1' },
+    { id: 2, name: 'Item 2' },
+    { id: 3, name: 'Item 3' },
+    { id: 6, name: 'Item 6' },
+    { id: 7, name: 'Item 7' },
+    { id: 8, name: 'Item 8' },
+    { id: 9, name: 'Item 9' },
+    { id: 10, name: 'Item 10' },
+    { id: 11, name: 'Item 11' },
+    { id: 12, name: 'Item 12' },
+    { id: 13, name: 'Item 13' },
+    { id: 14, name: 'Item 14' },
+    { id: 15, name: 'Item 15' },
+  ];
+
+  rightList: Item[] = [
+    // { id: 4, name: 'Item 4' },
+    // { id: 5, name: 'Item 5' },
+  ];
+
+  defaultList: Item[] = [
+    { id: 4, name: 'Item 4' },
+    { id: 5, name: 'Item 5' },
+  ];
 
   onSelectionChange(selectedRows: any[]) {
     console.log('Selected Rows:', selectedRows);
@@ -64,14 +95,14 @@ export class ParentComponent {
           salary: 10000000,
           id: 3,
         },
-          {
+        {
           name: '3423',
           age: 28,
           birthday: '1996-08-15',
           salary: 10000000,
           id: 31,
         },
-          {
+        {
           name: '4324234234',
           age: 28,
           birthday: '1996-08-15',

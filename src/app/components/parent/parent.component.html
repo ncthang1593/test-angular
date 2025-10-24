@@ -1,5 +1,10 @@
-@if (isShow) {
+<!-- @if (isShow) {
 <app-test-signal></app-test-signal>
 }
 <button (click)="isShow = !isShow">OK</button>
-<p>update 1</p>
+<p>update 1</p> -->
+<app-transfer-drag-drop
+  [leftList]="leftList"
+  [rightList]="rightList"
+  [defaultList]="defaultList"
+></app-transfer-drag-drop>
